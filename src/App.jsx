@@ -1,35 +1,27 @@
-import React, { useState } from "react";
-import LayoutGrid from "./components/Dashboard/LayoutGrid";
-import { traderProfiles } from "./config/trader-profiles";
-import "./styles/main.css";
+import React, { useState, useEffect } from 'react';
+import LayoutGrid from './components/Dashboard/LayoutGrid';
+import ProfileSwitcher from './components/ProfileSwitcher';
+import { usePersonalizationContext } from './context/PersonalizationContext';
+import './styles/main.css';
 
+export default function App() {
+  const { userProfile, getLayout } = usePersonalizationContext();
+  const [layout, setLayout] = useState([]);
+  const [widgets, setWidgets] = useState([]);
 
-function App() {
-  // For demo, let user pick profile
-  const [profile, setProfile] = useState("dayTrader");
-  const [layout, setLayout] = useState(traderProfiles[profile]);
-
-  const handleProfileChange = (e) => {
-    setProfile(e.target.value);
-    setLayout(traderProfiles[e.target.value]);
-  };
-
-  const handleLayoutChange = (newLayout) => {
-    // Optionally persist layout to localStorage or backend
-  };
+  useEffect(() => {
+    const { layout: newLayout, widgets: newWidgets } = getLayout();
+    setLayout(newLayout);
+    setWidgets(newWidgets);
+  }, [userProfile, getLayout]);
 
   return (
-    <div>
-      <header>
-        <h1>FinTech Personalized Trading Dashboard</h1>
-        <select value={profile} onChange={handleProfileChange}>
-          <option value="dayTrader">Day Trader</option>
-          <option value="investor">Investor</option>
-        </select>
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <h1>FinTech Trading Dashboard</h1>
+        <ProfileSwitcher />
       </header>
-      <LayoutGrid layout={layout} widgets={layout} onLayoutChange={handleLayoutChange} />
+      <LayoutGrid layout={layout} widgets={widgets} />
     </div>
   );
 }
-
-export default App;

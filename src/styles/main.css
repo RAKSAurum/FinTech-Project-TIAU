@@ -1,23 +1,31 @@
-body {
-  background: #0f172a;
-  color: #e5e7eb;
-  font-family: 'Segoe UI', Arial, sans-serif;
+:root {
+  --trade-dark: #0F172A;
+  --trade-slate: #1E293B;
+  --trade-neon: #00F0A0;
+  --trade-alert: #F59E0B;
 }
 
-.dashboard-grid {
-  margin: 2rem auto;
-  max-width: 1200px;
+body {
+  background: var(--trade-dark);
+  color: #E5E7EB;
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .widget {
-  background: #1e293b;
+  background: var(--trade-slate);
   border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.12);
   padding: 1rem;
-  min-height: 120px;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .widget h3 {
+  color: var(--trade-neon);
   margin-top: 0;
-  color: #00f0a0;
 }
