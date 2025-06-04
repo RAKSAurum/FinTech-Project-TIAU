@@ -1,0 +1,23 @@
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.dashboard-grid {
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.widget {
+  background: #1e293b;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+  padding: 1rem;
+  min-height: 120px;
+}
+
+.widget h3 {
+  margin-top: 0;
+  color: #00f0a0;
+}
