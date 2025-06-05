@@ -11,7 +11,7 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 export default function LayoutGrid() {
   const { getLayout } = usePersonalizationContext();
   const layoutData = getLayout();
-  const layouts = layoutData?.layout || { lg: [], md: [], sm: [], xs: [], xxs: [] };
+  const layouts = layoutData?.layout || { lg: [] };
   const widgets = layoutData?.widgets || [];
 
   return (
@@ -29,7 +29,7 @@ export default function LayoutGrid() {
         <div key={widget.i}>
           <ErrorBoundary>
             <div className="drag-handle" />
-            <WidgetFactory type={widget.type} />
+            <WidgetFactory type={widget.type} symbol={widget.symbol} />
           </ErrorBoundary>
         </div>
       ))}
