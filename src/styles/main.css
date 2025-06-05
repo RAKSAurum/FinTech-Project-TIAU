@@ -1,15 +1,16 @@
 :root {
-  --trade-dark: #0F172A;
-  --trade-slate: #1E293B;
-  --trade-neon: #00F0A0;
-  --trade-alert: #F59E0B;
+  --trade-dark: #101623;
+  --trade-slate: #1b2233;
+  --trade-neon: #00f0a0;
+  --trade-alert: #f59e0b;
+  --trade-text: #e5e7eb;
 }
 
 body {
   background: var(--trade-dark);
-  color: #E5E7EB;
+  color: var(--trade-text);
   margin: 0;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
 }
 
 .dashboard-container {
@@ -18,14 +19,81 @@ body {
   margin: 0 auto;
 }
 
-.widget {
-  background: var(--trade-slate);
-  border-radius: 8px;
-  padding: 1rem;
-  border: 1px solid rgba(255,255,255,0.1);
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.widget h3 {
+.dashboard-header h1 {
   color: var(--trade-neon);
-  margin-top: 0;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
 }
+
+.profile-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.profile-btn {
+  background: var(--trade-slate);
+  color: var(--trade-text);
+  border: 1px solid var(--trade-neon);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.profile-btn.active, .profile-btn:hover {
+  background: var(--trade-neon);
+  color: var(--trade-dark);
+}
+
+.dashboard-grid {
+  min-height: 600px;
+}
+
+.widget {
+  background: var(--trade-slate);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0002;
+  padding: 1.25rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  height: 100%;
+  overflow: hidden;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 0.5rem;
+}
+
+.widget-header h3 {
+  color: var(--trade-neon);
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.drag-handle {
+  cursor: move;
+  color: var(--trade-neon);
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard-widget, .challenges-widget, .news-widget, .voice-assistant, .orderbook-widget {
+  font-size: 1rem;
+}
+
+/* Add more widget-specific styles as needed */

@@ -1,4 +1,4 @@
-// src/components/ProfileSwitcher.jsx
+import React from 'react';
 import { usePersonalizationContext } from '../context/PersonalizationContext';
 
 export default function ProfileSwitcher() {
@@ -6,15 +6,15 @@ export default function ProfileSwitcher() {
 
   return (
     <div className="profile-switcher">
-      <button 
+      <button
+        className={`profile-btn ${userProfile.type === 'dayTrader' ? 'active' : ''}`}
         onClick={() => updateProfile({ type: 'dayTrader' })}
-        className={userProfile.type === 'dayTrader' ? 'active' : ''}
       >
         Day Trader
       </button>
       <button
+        className={`profile-btn ${userProfile.type === 'investor' ? 'active' : ''}`}
         onClick={() => updateProfile({ type: 'investor' })}
-        className={userProfile.type === 'investor' ? 'active' : ''}
       >
         Long-Term Investor
       </button>

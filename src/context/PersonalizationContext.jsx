@@ -1,11 +1,8 @@
+// src/context/PersonalizationContext.jsx
 import React, { createContext, useContext, useState } from 'react';
 import { traderProfiles } from '../config/trader-profiles';
 
-const PersonalizationContext = createContext({
-  userProfile: { type: 'dayTrader' },
-  updateProfile: () => {},
-  getLayout: () => {}
-});
+const PersonalizationContext = createContext();
 
 export function PersonalizationProvider({ children }) {
   const [userProfile, setUserProfile] = useState(() => {
@@ -27,4 +24,10 @@ export function PersonalizationProvider({ children }) {
   );
 }
 
-export const usePersonalizationContext = () => useContext(PersonalizationContext);
+export const usePersonalizationContext = () => {
+  const context = useContext(PersonalizationContext);
+  if (!context) {
+    throw new Error('usePersonalizationContext must be used within a PersonalizationProvider');
+  }
+  return context;
+};

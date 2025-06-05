@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
+import './styles/main.css';
+import React, { useEffect, useState } from 'react';
+import { usePersonalizationContext } from './context/PersonalizationContext';
 import LayoutGrid from './components/Dashboard/LayoutGrid';
 import ProfileSwitcher from './components/ProfileSwitcher';
-import { usePersonalizationContext } from './context/PersonalizationContext';
-import './styles/main.css';
+import ErrorBoundary from './components/ErrorBoundary';
+
 
 export default function App() {
-  const { userProfile, getLayout } = usePersonalizationContext();
-  const [layout, setLayout] = useState([]);
-  const [widgets, setWidgets] = useState([]);
+  const { getLayout } = usePersonalizationContext();
+  const [layoutConfig, setLayoutConfig] = useState({ 
+    layout: [], 
+    widgets: [] 
+  });
 
   useEffect(() => {
-    const { layout: newLayout, widgets: newWidgets } = getLayout();
-    setLayout(newLayout);
-    setWidgets(newWidgets);
-  }, [userProfile, getLayout]);
+    const config = getLayout();
+    setLayoutConfig(config);
+  }, [getLayout]);
 
   return (
     <div className="dashboard-container">
@@ -21,7 +26,9 @@ export default function App() {
         <h1>FinTech Trading Dashboard</h1>
         <ProfileSwitcher />
       </header>
-      <LayoutGrid layout={layout} widgets={widgets} />
+      <ErrorBoundary>
+        <LayoutGrid {...layoutConfig} />
+      </ErrorBoundary>
     </div>
   );
 }
