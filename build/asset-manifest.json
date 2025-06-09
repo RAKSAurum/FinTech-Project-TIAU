@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FinTech-Project-TIAU/static/css/main.c6794d90.css",
+    "main.js": "/FinTech-Project-TIAU/static/js/main.d83a94e0.js",
+    "index.html": "/FinTech-Project-TIAU/index.html",
+    "main.c6794d90.css.map": "/FinTech-Project-TIAU/static/css/main.c6794d90.css.map",
+    "main.d83a94e0.js.map": "/FinTech-Project-TIAU/static/js/main.d83a94e0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6794d90.css",
+    "static/js/main.d83a94e0.js"
+  ]
+}
