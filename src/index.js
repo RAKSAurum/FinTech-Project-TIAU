@@ -1,11 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./styles/main.css"; // Ensure your main styles are imported
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
+import './styles/main.css'; // Your custom styles
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { PersonalizationProvider } from './context/PersonalizationContext';
+import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <PersonalizationProvider>
     <App />
-  </React.StrictMode>
+  </PersonalizationProvider>
 );
