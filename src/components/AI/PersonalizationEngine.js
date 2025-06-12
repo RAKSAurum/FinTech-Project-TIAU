@@ -1,4 +1,7 @@
 // src/components/AI/PersonalizationEngine.js
+import { useState } from 'react';
+import { traderProfiles } from '../../config/trader-profiles';
+
 export const usePersonalization = () => {
   const [userProfile, setUserProfile] = useState(() => {
     const saved = localStorage.getItem('traderProfile');
