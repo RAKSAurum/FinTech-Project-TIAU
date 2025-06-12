@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
-        <h1>Fintech Trading Dash</h1>
+        <h1>FinTech Trading Dashboard</h1>
         <ProfileSwitcher />
       </header>
       <ErrorBoundary>
