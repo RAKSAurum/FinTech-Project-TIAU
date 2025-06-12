@@ -1,9 +1,17 @@
 {
+  "name": "fintech-trading-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://speedyoni.github.io/FinTech-Project-TIAU/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b gh-pages -d build",
+    "build:local": "react-scripts build",
+    "serve:local": "serve -s build"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -16,7 +24,6 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "homepage": "https://SpeedyOni.github.io/FinTech-Project-TIAU",
   "browserslist": {
     "production": [
       ">0.2%",
